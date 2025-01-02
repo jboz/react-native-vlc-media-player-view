@@ -27,6 +27,7 @@ type ControlsProps = {
   onFullscreen?: () => void;
   leftButtons?: ReactNode;
   rightButtons?: ReactNode;
+  playButtonDecorator?: (playButton: ReactNode) => ReactNode;
 };
 
 export type ControlsRef = {
@@ -48,7 +49,7 @@ export const Controls = forwardRef<ControlsRef | undefined, ControlsProps>(
       fullscreen,
       onFullscreen,
       leftButtons,
-      rightButtons
+      playButtonDecorator
     },
     ref
   ) => {
@@ -211,6 +212,7 @@ export const Controls = forwardRef<ControlsRef | undefined, ControlsProps>(
                     </Focussable>
                   )
                 }
+                playButtonDecorator={playButtonDecorator}
               />
             )}
             {showTracks && <TracksView player={player} onClose={() => setShowTracks(false)} />}

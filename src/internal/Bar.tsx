@@ -22,6 +22,7 @@ type ControlsBarProps = {
   rightButtons?: ReactNode;
   backwardSeconds: number;
   forwardSeconds: number;
+  playButtonDecorator?: (playButton: ReactNode) => ReactNode;
 };
 
 const buttonSize = 40;
@@ -40,7 +41,8 @@ export const ControlsBar = ({
   rightButtons,
   centerLeftButton,
   backwardSeconds,
-  forwardSeconds
+  forwardSeconds,
+  playButtonDecorator
 }: ControlsBarProps) => {
   const title = player.title;
 
@@ -147,9 +149,16 @@ export const ControlsBar = ({
               </Focussable>
             </View>
             <View style={[styles.part, { width: buttonSize * 1.4 }]}>
-              <Focussable onPress={() => player.togglePlay()}>
-                <MaterialIcons name={paused ? 'play-circle-outline' : 'pause-circle-outline'} size={buttonSize * 1.4} color="white" />
-              </Focussable>
+              {(playButtonDecorator &&
+                playButtonDecorator(
+                  <Focussable onPress={() => player.togglePlay()}>
+                    <MaterialIcons name={paused ? 'play-circle-outline' : 'pause-circle-outline'} size={buttonSize * 1.4} color="white" />
+                  </Focussable>
+                )) || (
+                <Focussable onPress={() => player.togglePlay()}>
+                  <MaterialIcons name={paused ? 'play-circle-outline' : 'pause-circle-outline'} size={buttonSize * 1.4} color="white" />
+                </Focussable>
+              )}
             </View>
             <View style={styles.part}>
               <Focussable onPress={onForward}>

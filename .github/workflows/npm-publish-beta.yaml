@@ -1,7 +1,7 @@
 name: Node.js Package Beta
 
 on:
-  # Trigger the workflow from any feature branch
+  # Trigger manually the workflow from the github interface
   workflow_dispatch:
     inputs:
       betaVersion:

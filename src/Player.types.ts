@@ -62,7 +62,13 @@ export declare class VideoPlayer extends SharedObject<VideoPlayerEvents> {
   release(): void;
   unselectAudioTrack(): void;
   unselectTextTrack(): void;
+  /**
+   * @param delta: in milliseconds
+   */
   setTimeDelta(delta: number);
+  /**
+   * @param delta: in milliseconds
+   */
   setPositionDelta(value: { delta: number; fastSeeking?: boolean });
 }
 export type OnLoadedEvent = { nativeEvent: VideoInfo };

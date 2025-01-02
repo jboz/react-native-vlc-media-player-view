@@ -49,6 +49,7 @@ export const VideoView = forwardRef<VideoViewRef | undefined, VideoViewProps>(
       alwaysFullscreen = false,
       leftButtons,
       rightButtons,
+      playButtonDecorator,
       ...rest
     }: VideoViewProps,
     ref
@@ -161,6 +162,7 @@ export const VideoView = forwardRef<VideoViewRef | undefined, VideoViewProps>(
           onFullscreen={() => setFullscreen(!fullscreen)}
           leftButtons={leftButtons}
           rightButtons={rightButtons}
+          playButtonDecorator={playButtonDecorator}
         />
       </View>
     );

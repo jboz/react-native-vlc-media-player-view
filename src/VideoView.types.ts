@@ -14,4 +14,5 @@ export type VideoViewProps = PlayerViewProps & {
   alwaysFullscreen?: boolean;
   leftButtons?: ReactNode;
   rightButtons?: ReactNode;
+  playButtonDecorator?: (playButton: ReactNode) => ReactNode;
 };
