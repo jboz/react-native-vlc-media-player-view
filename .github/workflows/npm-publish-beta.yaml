@@ -1,4 +1,4 @@
-name: Node.js Package Beta
+name: Publish beta package
 
 on:
   # Trigger manually the workflow from the github interface
